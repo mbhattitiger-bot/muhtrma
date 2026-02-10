@@ -3,49 +3,42 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Salgirah Mubarak Muhtrma! 🎂</title>
-    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Poppins:wght@300;600&display=swap" rel="stylesheet">
+    <title>Special Birthday - Muhtrma</title>
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Lora:italic,wght@400;700&family=Poppins:wght@300;600&display=swap" rel="stylesheet">
     <style>
-        :root { --p1: #ff4d6d; --p2: #7209b7; --p3: #4cc9f0; }
-        body, html { margin: 0; padding: 0; height: 100%; overflow: hidden; font-family: 'Poppins', sans-serif; background: #000; }
+        body, html { margin: 0; padding: 0; height: 100%; overflow: hidden; font-family: 'Poppins', sans-serif; background: #0b0d17; }
+        .page { position: absolute; width: 100%; height: 100%; display: flex; flex-direction: column; justify-content: center; align-items: center; transition: 1.2s ease-in-out; text-align: center; color: white; opacity: 0; visibility: hidden; padding: 20px; box-sizing: border-box; }
+        .active { opacity: 1; visibility: visible; }
+
+        /* Elegant Backgrounds */
+        #pg1 { background: linear-gradient(to bottom, #1a1c2c, #4a192c); }
+        #pg2 { background: radial-gradient(circle, #ff758f 0%, #ff4d6d 100%); }
+        #pg3 { background: linear-gradient(135deg, #6a11cb 0%, #2575fc 100%); }
+        #pg4 { background: linear-gradient(to right, #11998e, #38ef7d); }
+        #pg5 { background: #2d3436; }
+        #pg6 { background: linear-gradient(45deg, #f093fb 0%, #f5576c 100%); }
+        #pg7 { background: #6c5ce7; }
+        #pg8 { background: radial-gradient(circle, #2c3e50, #000000); }
+
+        h1 { font-family: 'Dancing Script', cursive; font-size: 4rem; margin-bottom: 15px; animation: glow 2s infinite alternate; }
+        p { font-family: 'Lora', serif; font-size: 1.6rem; max-width: 700px; line-height: 1.8; text-shadow: 1px 1px 5px rgba(0,0,0,0.3); }
         
-        .page {
-            position: absolute; width: 100%; height: 100%;
-            display: flex; flex-direction: column; justify-content: center; align-items: center;
-            transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1); text-align: center; color: white;
-            opacity: 0; transform: translateY(100%);
-        }
+        @keyframes glow { from { text-shadow: 0 0 10px #fff; } to { text-shadow: 0 0 20px #ff4d6d, 0 0 30px #ff4d6d; } }
 
-        .active { opacity: 1; transform: translateY(0); }
+        .btn { margin-top: 40px; padding: 15px 45px; background: rgba(255,255,255,0.9); color: #ff4d6d; border: none; border-radius: 50px; font-weight: bold; cursor: pointer; font-size: 1.1rem; transition: 0.4s; box-shadow: 0 10px 20px rgba(0,0,0,0.3); }
+        .btn:hover { transform: translateY(-5px); background: #fff; }
 
-        /* Diverse Backgrounds */
-        #pg1 { background: radial-gradient(circle, #ff9a9e 0%, #fecfef 100%); }
-        #pg2 { background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); }
-        #pg3 { background: linear-gradient(to right, #00b09b, #96c93d); }
-        #pg4 { background: linear-gradient(45deg, #f093fb 0%, #f5576c 100%); }
-        #pg5 { background: linear-gradient(to right, #fa709a 0%, #fee140 100%); }
-        #pg6 { background: #1a1a2e; }
-        #pg7 { background: #ff4d6d; }
-        #pg8 { background: linear-gradient(to bottom, #4facfe 0%, #00f2fe 100%); }
+        /* Animated Cake */
+        .cake { position: relative; width: 180px; height: 120px; background: #f9e3d4; border-radius: 15px 15px 0 0; margin: 30px 0; border-bottom: 5px solid #d4a373; }
+        .candle { position: absolute; top: -35px; left: 85px; width: 12px; height: 35px; background: #fff; border-radius: 5px; }
+        .flame { position: absolute; top: -18px; left: 3px; width: 8px; height: 15px; background: #ffd700; border-radius: 50%; animation: flicker 0.1s infinite; box-shadow: 0 0 15px #ffd700; }
+        @keyframes flicker { 0%, 100% { transform: scale(1); opacity: 0.9; } 50% { transform: scale(1.3); opacity: 1; } }
 
-        h1 { font-family: 'Dancing Script', cursive; font-size: 4rem; margin: 10px; text-shadow: 2px 2px 10px rgba(0,0,0,0.3); animation: bounce 2s infinite; }
-        p { font-size: 1.5rem; max-width: 80%; line-height: 1.4; font-weight: 300; }
-        .date { font-weight: bold; background: white; color: black; padding: 5px 15px; border-radius: 20px; margin-bottom: 20px; }
+        /* Falling Hearts/Stars */
+        .sparkle { position: absolute; color: white; pointer-events: none; animation: fall linear infinite; opacity: 0.6; }
+        @keyframes fall { to { transform: translateY(100vh) rotate(360deg); } }
 
-        .btn {
-            margin-top: 30px; padding: 15px 40px; background: white; color: #ff4d6d;
-            border: none; border-radius: 50px; font-weight: bold; cursor: pointer;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.2); transition: 0.3s;
-        }
-
-        /* Party Elements */
-        .balloon { position: absolute; bottom: -150px; width: 60px; height: 80px; border-radius: 50%; animation: rise 5s infinite ease-in; opacity: 0.8; }
-        .balloon:after { content: "▲"; position: absolute; bottom: -8px; left: 22px; color: inherit; font-size: 10px; }
-
-        @keyframes rise { 0% { bottom: -100px; transform: translateX(0); } 50% { transform: translateX(50px); } 100% { bottom: 110vh; transform: translateX(-50px); } }
-        @keyframes bounce { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-10px); } }
-
-        #music-btn { position: fixed; top: 20px; right: 20px; z-index: 1000; background: rgba(255,255,255,0.7); width: 50px; height: 50px; border-radius: 50%; display: flex; align-items: center; justify-content: center; cursor: pointer; font-size: 24px; }
+        #music-btn { position: fixed; top: 25px; right: 25px; z-index: 1000; cursor: pointer; font-size: 30px; filter: drop-shadow(0 0 5px white); }
     </style>
 </head>
 <body>
@@ -56,78 +49,80 @@
     </audio>
 
     <div class="page active" id="pg1">
-        <div class="date">Special Date: 14 Feb</div>
-        <h1>Assalam-o-Alaikum</h1>
-        <p>Aaj ki subha kuch zyada hi haseen hai... ✨</p>
-        <button class="btn" onclick="go(2)">Kyun? Check Karein</button>
+        <h1>Assalam-o-Alaikum ✨</h1>
+        <p>Aaj 14 February hai... Dunya ise Valentine's Day kehti hai, lekin mere liye ye din is se kahin zyada khaas hai kyunki aaj ek bohat pyari shakhsiyat ka janam din hai.</p>
+        <button class="btn" onclick="next(2)">Woh Shakhs Kaun Hai? ✨</button>
     </div>
 
     <div class="page" id="pg2">
-        <h1>Salgirah Mubarak</h1>
-        <p style="font-size: 3rem; font-weight: bold;">Muhtrma!</p>
-        <p>Aap jaisa koi nahi is poori duniya mein.</p>
-        <button class="btn" onclick="go(3)">Aage Chalein 🎈</button>
+        <h1>Salgirah Mubarak Muhtrma!</h1>
+        <div class="cake">
+            <div class="candle"><div class="flame"></div></div>
+        </div>
+        <p>Aap jaisa mukhlis aur pyara insaan milna naseeb ki baat hoti hai. Dua hai ke aapki zindagi is cake ki tarah meethi aur is candle ki roshni ki tarah hamesha chamakti rahe.</p>
+        <button class="btn" onclick="next(3)">Ameen! Aage Chalein ❤️</button>
     </div>
 
     <div class="page" id="pg3">
-        <h1>14 February ✨</h1>
-        <p>Log isse Valentine kehte hain, lekin humare liye ye "Muhtrma Day" hai! 🎉</p>
-        <button class="btn" onclick="go(4)">Next Surprise</button>
+        <h1>Hamesha Muskurati Rahein...</h1>
+        <p>Khuda kare ke aapke chehre ki muskurahat kabhi kam na ho. Aapki hansi se dunya haseen lagti hai, aur meri dua hai ke har naya din aapke liye hazaron nayi khushiyan lekar aaye.</p>
+        <button class="btn" onclick="next(4)">Ek Aur Dua... 🎈</button>
     </div>
 
     <div class="page" id="pg4">
-        <h1>Meri Dua Hai...</h1>
-        <p>Ke aap hamesha aise hi muskurati rahein jaise phool khilte hain. 🌸</p>
-        <button class="btn" onclick="go(5)">Keep Going</button>
+        <h1>Kamyabi Aapke Qadam Choome</h1>
+        <p>Zindagi ke har imtihan mein aap surkhru hon. Aap jo bhi khwab dekhein, Allah unhein haqeeqat bana de aur aapko wo maqam ata kare jiski aapne hamesha tamanna ki hai.</p>
+        <button class="btn" onclick="next(5)">Dil Se Baat... ✨</button>
     </div>
 
     <div class="page" id="pg5">
-        <h1>Kamyabi...</h1>
-        <p>Allah aapko har maqsad mein kamyab kare aur har dukh se door rakhe. 🙏</p>
-        <button class="btn" onclick="go(6)">More Wishes</button>
+        <h1>Aap Bohat Khaas Hain</h1>
+        <p>Aapki maujoodgi hi kaafi hai mahool ko khush-gawar banane ke liye. Aapki saadgi aur aapka khuloos aapko sab se juda banata hai. Kabhi mat bhooliye ga ke aap kitni keemti hain.</p>
+        <button class="btn" onclick="next(6)">More Wishes 🎁</button>
     </div>
 
     <div class="page" id="pg6">
-        <h1>Party Time! 🥳</h1>
-        <p>Aaj ka din khoob enjoy karein, doston aur family ke saath!</p>
-        <button class="btn" onclick="go(7)">Almost There</button>
+        <h1>Dukh Kabhi Paas Na Aaye</h1>
+        <p>Allah aapko har qism ke gham, pareshani aur buri nazar se mehfooz rakhe. Aapki zindagi phoolon ki raah ki tarah naram aur pur-sukoon ho, jahan sirf sukoon hi sukoon ho.</p>
+        <button class="btn" onclick="next(7)">Almost There 🎉</button>
     </div>
 
     <div class="page" id="pg7">
-        <h1>Special Insaan ❤️</h1>
-        <p>Aapki dosti aur presence mere liye bohot keemti hai. Stay Blessed!</p>
-        <button class="btn" onclick="go(8)">The Finale 🎁</button>
+        <h1>Salgirah Ka Tohfa</h1>
+        <p>Mere paas koi qeemti tohfa toh nahi, lekin ye dil se nikli hui duayein hamesha aapke saath rahein gi. Umeed hai ye choti si koshish aapke chehre par ek pyari si muskurahat laye gi.</p>
+        <button class="btn" onclick="next(8)">The Finale 💖</button>
     </div>
 
     <div class="page" id="pg8">
-        <h1>Happy Birthday! 🎂</h1>
-        <p>Hamesha khush rahein, abaad rahein. 14 Feb Mubarak! 🎉✨</p>
-        <button class="btn" onclick="go(1)">Dekhein Dobara 🔄</button>
+        <h1>Happy Birthday Muhtrma! 🎂</h1>
+        <p>Zindagi ka har lamha khushiyon se bhara ho. 14 February ka ye din aapki zindagi ka sab se yaadgar din sabit ho. Stay Blessed, Stay Happy, and Keep Smiling!</p>
+        <button class="btn" onclick="next(1)">Shuru Se Dekhein 🔄</button>
     </div>
 
     <script>
-        function go(num) {
+        function next(num) {
             document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
             document.getElementById('pg' + num).classList.add('active');
             let m = document.getElementById('bgMusic');
             if(m.paused) m.play();
         }
-
         function toggleMusic() {
             let m = document.getElementById('bgMusic');
             if(m.paused) m.play(); else m.pause();
         }
-
-        function createBalloon() {
-            const b = document.createElement('div');
-            b.className = 'balloon';
-            b.style.left = Math.random() * 100 + 'vw';
-            b.style.background = `hsl(${Math.random() * 360}, 70%, 60%)`;
-            b.style.animationDuration = (Math.random() * 2 + 3) + 's';
-            document.body.appendChild(b);
-            setTimeout(() => b.remove(), 5000);
+        function createSparkle() {
+            const s = document.createElement('div');
+            s.className = 'sparkle';
+            const icons = ['✨', '💖', '🌸', '❄️', '🎈'];
+            s.innerHTML = icons[Math.floor(Math.random() * icons.length)];
+            s.style.left = Math.random() * 100 + 'vw';
+            s.style.top = '-20px';
+            s.style.fontSize = Math.random() * 20 + 10 + 'px';
+            s.style.animationDuration = Math.random() * 3 + 4 + 's';
+            document.body.appendChild(s);
+            setTimeout(() => s.remove(), 7000);
         }
-        setInterval(createBalloon, 400);
+        setInterval(createSparkle, 300);
     </script>
 </body>
 </html>
