@@ -3,87 +3,131 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>For Muhtrma - 14th Feb Special</title>
-    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <title>Salgirah Mubarak Muhtrma! 🎂</title>
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Poppins:wght@300;600&display=swap" rel="stylesheet">
     <style>
-        :root { --primary: #ff4d6d; --secondary: #ff758f; }
+        :root { --p1: #ff4d6d; --p2: #7209b7; --p3: #4cc9f0; }
         body, html { margin: 0; padding: 0; height: 100%; overflow: hidden; font-family: 'Poppins', sans-serif; background: #000; }
         
         .page {
             position: absolute; width: 100%; height: 100%;
             display: flex; flex-direction: column; justify-content: center; align-items: center;
-            transition: all 0.8s ease-in-out; text-align: center; color: white;
+            transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1); text-align: center; color: white;
+            opacity: 0; transform: translateY(100%);
         }
 
-        /* Pages Gradients */
-        #p1 { background: linear-gradient(45deg, #ff9a9e 0%, #fecfef 100%); transform: scale(1); }
-        #p2 { background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); transform: scale(0); }
-        #p3 { background: linear-gradient(120deg, #f093fb 0%, #f5576c 100%); transform: scale(0); }
-        #p4 { background: linear-gradient(to right, #fa709a 0%, #fee140 100%); transform: scale(0); }
+        .active { opacity: 1; transform: translateY(0); }
 
-        h1 { font-family: 'Dancing Script', cursive; font-size: 4.5rem; margin: 0; text-shadow: 3px 3px 10px rgba(0,0,0,0.2); }
-        .date-badge { background: rgba(255,255,255,0.2); padding: 5px 20px; border-radius: 20px; font-weight: bold; margin-bottom: 20px; }
-        p { font-size: 1.4rem; max-width: 80%; line-height: 1.5; }
-        
+        /* Diverse Backgrounds */
+        #pg1 { background: radial-gradient(circle, #ff9a9e 0%, #fecfef 100%); }
+        #pg2 { background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); }
+        #pg3 { background: linear-gradient(to right, #00b09b, #96c93d); }
+        #pg4 { background: linear-gradient(45deg, #f093fb 0%, #f5576c 100%); }
+        #pg5 { background: linear-gradient(to right, #fa709a 0%, #fee140 100%); }
+        #pg6 { background: #1a1a2e; }
+        #pg7 { background: #ff4d6d; }
+        #pg8 { background: linear-gradient(to bottom, #4facfe 0%, #00f2fe 100%); }
+
+        h1 { font-family: 'Dancing Script', cursive; font-size: 4rem; margin: 10px; text-shadow: 2px 2px 10px rgba(0,0,0,0.3); animation: bounce 2s infinite; }
+        p { font-size: 1.5rem; max-width: 80%; line-height: 1.4; font-weight: 300; }
+        .date { font-weight: bold; background: white; color: black; padding: 5px 15px; border-radius: 20px; margin-bottom: 20px; }
+
         .btn {
-            margin-top: 30px; padding: 15px 40px; background: white; color: var(--primary);
+            margin-top: 30px; padding: 15px 40px; background: white; color: #ff4d6d;
             border: none; border-radius: 50px; font-weight: bold; cursor: pointer;
-            box-shadow: 0 10px 20px rgba(0,0,0,0.1); transition: 0.3s; z-index: 100;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2); transition: 0.3s;
         }
 
-        /* Music Toggle */
-        #music-control { position: fixed; top: 20px; right: 20px; z-index: 1000; background: rgba(255,255,255,0.5); border-radius: 50%; width: 40px; height: 40px; cursor: pointer; display: flex; align-items: center; justify-content: center; font-size: 20px; }
+        /* Party Elements */
+        .balloon { position: absolute; bottom: -150px; width: 60px; height: 80px; border-radius: 50%; animation: rise 5s infinite ease-in; opacity: 0.8; }
+        .balloon:after { content: "▲"; position: absolute; bottom: -8px; left: 22px; color: inherit; font-size: 10px; }
+
+        @keyframes rise { 0% { bottom: -100px; transform: translateX(0); } 50% { transform: translateX(50px); } 100% { bottom: 110vh; transform: translateX(-50px); } }
+        @keyframes bounce { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-10px); } }
+
+        #music-btn { position: fixed; top: 20px; right: 20px; z-index: 1000; background: rgba(255,255,255,0.7); width: 50px; height: 50px; border-radius: 50%; display: flex; align-items: center; justify-content: center; cursor: pointer; font-size: 24px; }
     </style>
 </head>
 <body>
 
-    <div id="music-control" onclick="toggleMusic()">🎵</div>
+    <div id="music-btn" onclick="toggleMusic()">🎵</div>
     <audio id="bgMusic" loop>
-        <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" type="audio/mpeg">
+        <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-2.mp3" type="audio/mpeg">
     </audio>
 
-    <div class="page" id="p1">
-        <div class="date-badge">14 February</div>
+    <div class="page active" id="pg1">
+        <div class="date">Special Date: 14 Feb</div>
         <h1>Assalam-o-Alaikum</h1>
-        <p>Aaj ek bohat khoobsurat din hai...</p>
-        <button class="btn" onclick="showPage(2)">Kyun? ✨</button>
+        <p>Aaj ki subha kuch zyada hi haseen hai... ✨</p>
+        <button class="btn" onclick="go(2)">Kyun? Check Karein</button>
     </div>
 
-    <div class="page" id="p2">
-        <div class="date-badge">The Golden Date</div>
-        <h2>Salgirah Mubarak</h2>
-        <h1>Muhtrma</h1>
-        <p>14 Feb sirf mohabbat ka din nahi, aap jaisi pyaari shakhsiyat ke is duniya mein aane ka din hai.</p>
-        <button class="btn" onclick="showPage(3)">Aage dekhein ❤️</button>
+    <div class="page" id="pg2">
+        <h1>Salgirah Mubarak</h1>
+        <p style="font-size: 3rem; font-weight: bold;">Muhtrma!</p>
+        <p>Aap jaisa koi nahi is poori duniya mein.</p>
+        <button class="btn" onclick="go(3)">Aage Chalein 🎈</button>
     </div>
 
-    <div class="page" id="p3">
-        <h1>Meri Dua...</h1>
-        <p>Is naye saal mein aapko wo har khushi mile jiske liye aapne khuda se dua ki hai. Aap hamesha muskurati rahein.</p>
-        <button class="btn" onclick="showPage(4)">Ek aakhri baat 🎁</button>
+    <div class="page" id="pg3">
+        <h1>14 February ✨</h1>
+        <p>Log isse Valentine kehte hain, lekin humare liye ye "Muhtrma Day" hai! 🎉</p>
+        <button class="btn" onclick="go(4)">Next Surprise</button>
     </div>
 
-    <div class="page" id="p4">
-        <div class="date-badge">14.02.2026</div>
-        <h1>Happy Birthday!</h1>
-        <p>Allah aapka naseeb hamesha buland rakhe. Have a wonderful day, Muhtrma!</p>
-        <button class="btn" onclick="showPage(1)">Phir se dekhein 🔄</button>
+    <div class="page" id="pg4">
+        <h1>Meri Dua Hai...</h1>
+        <p>Ke aap hamesha aise hi muskurati rahein jaise phool khilte hain. 🌸</p>
+        <button class="btn" onclick="go(5)">Keep Going</button>
+    </div>
+
+    <div class="page" id="pg5">
+        <h1>Kamyabi...</h1>
+        <p>Allah aapko har maqsad mein kamyab kare aur har dukh se door rakhe. 🙏</p>
+        <button class="btn" onclick="go(6)">More Wishes</button>
+    </div>
+
+    <div class="page" id="pg6">
+        <h1>Party Time! 🥳</h1>
+        <p>Aaj ka din khoob enjoy karein, doston aur family ke saath!</p>
+        <button class="btn" onclick="go(7)">Almost There</button>
+    </div>
+
+    <div class="page" id="pg7">
+        <h1>Special Insaan ❤️</h1>
+        <p>Aapki dosti aur presence mere liye bohot keemti hai. Stay Blessed!</p>
+        <button class="btn" onclick="go(8)">The Finale 🎁</button>
+    </div>
+
+    <div class="page" id="pg8">
+        <h1>Happy Birthday! 🎂</h1>
+        <p>Hamesha khush rahein, abaad rahein. 14 Feb Mubarak! 🎉✨</p>
+        <button class="btn" onclick="go(1)">Dekhein Dobara 🔄</button>
     </div>
 
     <script>
-        function showPage(num) {
-            document.querySelectorAll('.page').forEach(p => p.style.transform = 'scale(0)');
-            document.getElementById('p' + num).style.transform = 'scale(1)';
-            
-            // Auto-play music on first click (browsers block auto-audio)
-            let music = document.getElementById('bgMusic');
-            if (music.paused) music.play();
+        function go(num) {
+            document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+            document.getElementById('pg' + num).classList.add('active');
+            let m = document.getElementById('bgMusic');
+            if(m.paused) m.play();
         }
 
         function toggleMusic() {
-            let music = document.getElementById('bgMusic');
-            if (music.paused) music.play(); else music.pause();
+            let m = document.getElementById('bgMusic');
+            if(m.paused) m.play(); else m.pause();
         }
+
+        function createBalloon() {
+            const b = document.createElement('div');
+            b.className = 'balloon';
+            b.style.left = Math.random() * 100 + 'vw';
+            b.style.background = `hsl(${Math.random() * 360}, 70%, 60%)`;
+            b.style.animationDuration = (Math.random() * 2 + 3) + 's';
+            document.body.appendChild(b);
+            setTimeout(() => b.remove(), 5000);
+        }
+        setInterval(createBalloon, 400);
     </script>
 </body>
 </html>
